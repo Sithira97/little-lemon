@@ -1,15 +1,20 @@
+import React from "react";
 import './App.css';
 import './custom.css';
-import Header from './Components/Header.js';
-import Main from './Components/Main.js';
-import Footer from './Components/Footer.js';
+import HomePage from './Components/HomePage.js';
+import BookingPage  from './Components/BookingPage .js';
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header/>
-      <Main/>
-      <Footer/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/booking" element={<BookingPage  />}></Route>
+        </Routes>
+      </Router>
+
     </>
   );
 }

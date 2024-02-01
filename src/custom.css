@@ -1,3 +1,30 @@
+body,
+button {
+    font-family: 'Karla', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Markazi Text', serif;
+}
+
+h1 {
+    font-size: 64px;
+    line-height: 70px;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 40px;
+}
+
+h3 {
+    margin: 0;
+    font-size: 30px;
+}
+
 .header .container {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -10,7 +37,7 @@
 }
 
 .header .brand-logo {
-    background-color: #808080;
+    background-color: transparent;
     margin: 1rem;
     max-height: 40px;
     align-self: center;
@@ -37,6 +64,10 @@ nav ul {
     padding: 0.5rem 1rem;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.nav-bar .nav-link:has(a.active) {
+    box-shadow: 0 0 1000px inset rgb(0, 0, 0, 0.05);
 }
 
 .nav-link a {
@@ -125,13 +156,20 @@ button:focus {
     color: #ffffff;
 }
 
+.hero h1 {
+    color: #f3cd31;
+}
+
+
 .hero p {
     max-width: 80%;
+    font-size: 18px;
 }
 
 
 .hero button,
 .highlight .title-bar button {
+    font-size: 18px;
     border: none;
     height: 100%;
     padding: 0.65rem 1.5rem;
@@ -152,7 +190,7 @@ button:focus {
 }
 
 .highlight {
-    margin-top: 5rem;
+    margin-top: 5rem !important;
 }
 
 .highlight .title-bar {
@@ -214,6 +252,14 @@ button:focus {
     margin: 0.5rem 0;
 }
 
+.card .card-content .user-rate {
+    margin: 0 0 0.5rem 0.5rem;
+}
+
+.card .card-content .user-rate svg {
+    fill: #f3cd31;
+}
+
 .card .card-footer {
     padding: 0.5rem 0;
     margin-top: auto;
@@ -234,6 +280,7 @@ button:focus {
 
 .testimonials h3 {
     text-align: center;
+    margin: 0 0 1rem;
 }
 
 .testimonials .slider {
@@ -253,6 +300,7 @@ button:focus {
 .testimonials .slider .card .card-title {
     justify-content: space-around;
     margin-bottom: 1rem;
+    font-size: 20px;
 }
 
 .testimonials .slider .card img {
@@ -271,6 +319,11 @@ button:focus {
     grid-template-columns: repeat(2, 50%);
     padding: 0 5rem;
     align-items: center;
+    color: #495e57
+}
+
+.about-container h1 {
+    color: #f3cd31;
 }
 
 .about-container .chef-images {
@@ -282,15 +335,17 @@ button:focus {
 }
 
 .about-container .chef-images img {
-    background-color: #808080;
+    background-color: transparent;
+    filter: drop-shadow(5px 5px 5px #00000036);
     position: relative;
+    object-fit: contain;
     width: 200px;
-    height: 250px;
+    height: auto;
     border-radius: 10%;
 }
 
 .about-container .chef-images img#adrian {
-    top: 25%;
+    top: 20%;
     right: 40%;
 }
 
@@ -299,8 +354,8 @@ button:focus {
 }
 
 .about-container .chef-images img#mario {
-    left: 40%;
-    top: 10%
+    left: 35%;
+    top: 0%
 }
 
 .about-container .chef-images img#mario:hover {
@@ -365,6 +420,14 @@ img {
     .hero-container .container {
         padding: 0 5rem;
     }
+
+    .about-container .chef-images img#adrian {
+        right: 40%;
+    }
+
+    .about-container .chef-images img#mario {
+        left: 60%;
+    }
 }
 
 @media (max-width:768px) {
@@ -384,7 +447,7 @@ img {
 
     .header,
     .header .container {
-        transition: max-height 0.5s cubic-bezier(0.4,-0.01, 1, 1);
+        transition: max-height 0.5s cubic-bezier(0.4, -0.01, 1, 1);
         max-height: 69px;
     }
 
@@ -411,7 +474,7 @@ img {
     }
 
     .header .container .nav-bar.show {
-        transition: max-height 0.3s 0.01s cubic-bezier(0.4,-0.01, 1, 1);
+        transition: max-height 0.3s 0.01s cubic-bezier(0.4, -0.01, 1, 1);
         max-height: 100%;
     }
 
@@ -476,6 +539,10 @@ img {
     .about-container {
         padding: 0 2rem;
     }
+
+    .about-container .chef-images img {
+        width: 150px;
+    }
 }
 
 @media (max-width:576px) {
@@ -510,7 +577,9 @@ img {
     }
 
     .about-container .chef-images {
-        margin: 0
+        margin: 0;
+        display: flex;
+        flex-direction: row-reverse;
     }
 
     .about-container .chef-images img {
