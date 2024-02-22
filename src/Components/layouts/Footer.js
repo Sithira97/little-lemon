@@ -4,7 +4,7 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="container">
-                <img className="brand-logo" src="" alt="Logo" />
+                <img className="brand-logo" src={process.env.PUBLIC_URL + `/images/logo_footer.png`} alt="Logo" />
                 <nav>
                     <h4 className="footer-title">Pages</h4>
                     <ul>

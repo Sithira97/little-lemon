@@ -1,9 +1,10 @@
 import React from "react";
 import './App.css';
 import './custom.css';
-import HomePage from './Components/HomePage.js';
-import BookingPage  from './Components/BookingPage .js';
-import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from './Components/Home/HomePage.js';
+import BookingPage from './Components/Booking/BookingPage.js';
+import ConfirmedBooking from './Components/Booking/ConfirmedBooking.js';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/booking" element={<BookingPage  />}></Route>
+          <Route path="/booking" element={<BookingPage />}></Route>
+          <Route path="/booking/success" element={<ConfirmedBooking />}></Route>
         </Routes>
       </Router>
 

@@ -1,6 +1,9 @@
-import Header from './layouts/Header.js';
-import Home from './Home.js';
-import Footer from './layouts/Footer.js';
+import Header from '../layouts/Header.js';
+import HeroSection from './Sections/HeroSection.js';
+import HighLightSection from './Sections/HighLightSection.js';
+import TestimonialsSection from './Sections/TestimonialsSection.js'
+import AboutSection from './Sections/AboutSection.js'
+import Footer from '../layouts/Footer.js';
 
 
 function HomePage() {
@@ -55,7 +58,12 @@ function HomePage() {
     return (
         <>
             <Header />
-            <Home specials={specials} testimonials={testimonials}/>
+            <main className="main">
+                <HeroSection />
+                <HighLightSection specials={specials} />
+                <TestimonialsSection testimonials={testimonials} />
+                <AboutSection />
+            </main>
             <Footer />
         </>
     )

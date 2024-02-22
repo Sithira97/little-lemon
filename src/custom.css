@@ -127,9 +127,10 @@ button:focus {
 }
 
 .footer .brand-logo {
-    background-color: #808080;
+    /* background-color: #808080; */
     margin: 1rem;
     max-width: 100px;
+    width:auto;
     height: 150px;
     align-self: center;
 }
@@ -226,6 +227,7 @@ button:focus {
 }
 
 .card .card-image {
+
     background-color: #808080;
     display: block;
     position: relative;
@@ -234,6 +236,7 @@ button:focus {
     top: 0;
     width: calc(100% + 4rem);
     height: 200px;
+    object-fit: cover;
 
 }
 
@@ -500,7 +503,18 @@ img {
     }
 
     .hero-container {
-        background-color: #808080;
+        background: #000000;
+        background-image: url('../public/images/restauranfood.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .hero-container .darker-layer {
+        position: relative;
+        top: 0;
+        right: 0;
+        background-color: #00000098;
         padding: 3rem 1rem;
     }
 
@@ -564,7 +578,7 @@ img {
     }
 
     .testimonials .slider .card {
-        max-width: 100% !important;
+        max-width: 50% !important;
         margin: 0.5rem 2rem;
     }
 
@@ -585,4 +599,14 @@ img {
     .about-container .chef-images img {
         position: initial;
     }
+}
+
+.confirm-container{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.confirm-container h2{
+    margin-top: 1rem;
 }

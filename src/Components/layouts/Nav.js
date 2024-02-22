@@ -8,7 +8,7 @@ function Nav({ isNavVisible }) {
                 <li className="nav-link">
                     <NavLink to="/" className={location}>Home</NavLink>
                 </li>
-                <li className="nav-link"><a href="#about">About</a></li>
+                <li className="nav-link"><a href="#about-container">About</a></li>
                 <li className="nav-link"><a href="#Menu">Menu</a></li>
                 <li className="nav-link">
                     <NavLink to="/booking" className={location}>Reservations</NavLink>
