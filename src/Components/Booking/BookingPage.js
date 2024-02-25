@@ -1,20 +1,20 @@
-import Header from '../layouts/Header.js';
+import Header from '../_layouts/Header.js';
 import BookingForm from './BookingForm.js';
-import Footer from '../layouts/Footer.js';
+import Footer from '../_layouts/Footer.js';
 import { fetchAPI, submitAPI } from '../API.js';
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import './form.css';
+
 
 function BookingPage() {
-    const [formData, setFormData] = useState({
-        resDate: '',
-        resTime: '',
-        guestsNo: '1',
-        occasion: '',
-        otherNotes: '',
-    });
+    const formData = {
+        _res_date: '',
+        _res_time: '',
+        _guests: '1',
+        _occasion: '',
+        _notes: '',
+    };
 
     const reducer = (state, action) => {
         if (action.type === 'UPDATE_TIMES') {
@@ -33,11 +33,10 @@ function BookingPage() {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (values) => {
+        const response = submitAPI(values);
         console.log('submitted');
-        const response = submitAPI(e);
-        if (response && validateReservation) {
+        if (response) {
             navigate('/booking/success');
         } else {
             navigate('/booking');
@@ -46,24 +45,11 @@ function BookingPage() {
 
     };
 
-
-    const validateReservation = () => {
-        if (formData.time !== '' &&
-            formData.date !== '' &&
-            formData.guestsNo !== '' &&
-            formData.occasion !== '') {
-            return true;
-        }
-
-        return false;
-    }
-
     return (
         <>
             <Header />
             < BookingForm
                 formData={formData}
-                setFormData={setFormData}
                 availableTimes={availableTimes}
                 updateTimes={updateTimes}
                 handleSubmit={handleSubmit} />

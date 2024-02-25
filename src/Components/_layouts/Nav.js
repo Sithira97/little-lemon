@@ -8,13 +8,13 @@ function Nav({ isNavVisible }) {
                 <li className="nav-link">
                     <NavLink to="/" className={location}>Home</NavLink>
                 </li>
-                <li className="nav-link"><a href="#about-container">About</a></li>
-                <li className="nav-link"><a href="#Menu">Menu</a></li>
+                <li className="nav-link"><NavLink to="/about" className={location}>About</NavLink></li>
+                <li className="nav-link"><NavLink to="/menu" className={location}>Menu</NavLink></li>
                 <li className="nav-link">
                     <NavLink to="/booking" className={location}>Reservations</NavLink>
                 </li>
-                <li className="nav-link"><a href="#Order">Order Online</a></li>
-                <li className="nav-link"><a href="#Login">Login</a></li>
+                <li className="nav-link"> <NavLink to="/order" className={location}>Order Online</NavLink></li>
+                <li className="nav-link"> <NavLink to="/login" className={location}>Login</NavLink></li>
             </ul>
         </nav>
     )

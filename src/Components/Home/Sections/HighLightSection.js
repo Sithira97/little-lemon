@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export default function HighLightSection({ specials }) {
     return (
         <>
             <div className="highlight container">
                 <div className="title-bar">
                     <h2>This weeks specials!</h2>
-                    <button>Online Menu</button>
+                    <Link to="/menu"><button>Online Menu</button></Link>
                 </div>
                 <section id="menu">
                     {specials.map((item, index) => {

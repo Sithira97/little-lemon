@@ -1,5 +1,5 @@
-import Header from '../layouts/Header.js';
-import Footer from '../layouts/Footer.js';
+import Header from '../_layouts/Header.js';
+import Footer from '../_layouts/Footer.js';
 
 function ConfirmedBooking() {
     return (
@@ -34,7 +34,10 @@ function ConfirmedBooking() {
                     </svg>
                     <h2>Booking Confirmed</h2>
                     <p>Thank you for reserving at our restaurant!</p>
-                    <button onClick={() => window.location.href = "/"}>Go to Home</button>
+                    <div>
+                        <button onClick={() => window.location.href = "/booking"} className='btn btn-outline'>Reserve another</button>
+                        <button onClick={() => window.location.href = "/"} className='btn btn-primary'>Go to Home</button>
+                    </div>
                 </div>
             </>
             <Footer />

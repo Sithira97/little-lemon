@@ -1,9 +1,9 @@
-import Header from '../layouts/Header.js';
+import Header from '../_layouts/Header.js';
 import HeroSection from './Sections/HeroSection.js';
 import HighLightSection from './Sections/HighLightSection.js';
 import TestimonialsSection from './Sections/TestimonialsSection.js'
 import AboutSection from './Sections/AboutSection.js'
-import Footer from '../layouts/Footer.js';
+import Footer from '../_layouts/Footer.js';
 
 
 function HomePage() {

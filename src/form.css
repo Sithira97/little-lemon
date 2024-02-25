@@ -1,0 +1,98 @@
+div.form-container{
+    width:75%;
+    align-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container .main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    justify-content: center;
+    width:50%;
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 1rem 0;
+}
+
+.form-group label{
+    margin: 0.5rem 0.5rem 0 0;
+    text-wrap: nowrap;
+}
+
+.form-group .input-group{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form-control{
+    flex-grow:1;
+    height: max-content;
+    border: 1px solid gray;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.invalid-alert{
+    font-size: small;
+    color: red;
+    margin: 0.2rem 0;
+}
+
+.btn{
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    font-size: larger;
+}
+
+.m-none{
+    margin: 0;
+}
+
+.btn-primary{
+    background-color: #495e57;
+    color: white;
+}
+
+.btn-outline{
+    border: #495e57 1.5px solid;
+    color: #495e57;
+    background: none;
+}
+
+.btn-primary:hover{
+    color: #fff;
+    box-shadow: 0 0 1000px inset rgb(0, 0, 0, 0.1);
+}
+
+.btn-outline:hover{
+    color: #fff;
+    background-color: #495e57;
+    box-shadow: 0 0 1000px inset rgb(0, 0, 0, 0.1);
+}
+
+.btn:active{
+    color: white;
+    box-shadow: 0 0 1000px inset rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px 1px #495e57af;
+}
+
+.btn-block{
+    display: flex;
+    flex-grow: 1;
+}

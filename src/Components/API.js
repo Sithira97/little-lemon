@@ -18,8 +18,6 @@ const seededGenerator = (date, hour) => {
 const fetchAPI = (date) => {
     let result = [];
 
-    result.push("--- Select a Time ---")
-
     for (let hour = 17; hour <= 22; hour++) {
         if (seededGenerator(date, hour) < 0.5) result.push(hour + ':00');
     }
@@ -30,4 +28,4 @@ const fetchAPI = (date) => {
 const submitAPI = formData => true;
 
 
-export {fetchAPI, submitAPI};
+export { fetchAPI, submitAPI };

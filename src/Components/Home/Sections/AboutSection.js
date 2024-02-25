@@ -7,35 +7,11 @@ export default function AboutSection() {
                         <h1>Little Lemon</h1>
                         <h2>Chicago</h2>
                         <p>
-                            Based in Chicago, Illinois, Little Lemon is a family owned
-                            Mediterranean restaurant, focused on traditional recipes served with a
-                            modern twist.
-                        </p>
-                        <p>
-                            The chefs draw inspiration from Italian, Greek, and Turkish culture
-                            and have a menu of 12-15 items that they rotate seasonally.
-                        </p>
-
-                        <p>
-                            The restaurant has a rustic and relaxed atmosphere with moderate
-                            prices, making it a popular place for a meal any time of the day.
-                        </p>
-
-                        <p>
-                            Little Lemon is owned by two Italian brothers, Mario and Adrian, who
-                            moved to the United States to pursue their shared dream of owning a
-                            restaurant.
-                        </p>
-
-                        <p>
-                            To craft the menu, Mario relies on family recipes and his experience
-                            as a chef in Italy.
-                        </p>
-
-                        <p>
-                            Adrian does all the marketing for the restaurant and led the effort to
-                            expand the menu beyond classic Italian to incorporate additional
-                            cuisines from the mediterranean region.
+                            Little Lemon, a Chicago-based, family-owned Mediterranean restaurant,
+                            offers a unique twist on tradition. The brothers, Mario and Adrian, combine
+                            family recipes with Italian, Greek, and Turkish influences in their 12-15 seasonally
+                            rotating menu. With a rustic ambiance and reasonable prices, Little Lemon caters to any meal,
+                            reflecting the brothers' shared dream come true.
                         </p>
                     </div>
                     <div className="chef-images">
