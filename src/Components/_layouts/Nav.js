@@ -6,7 +6,7 @@ function Nav({ isNavVisible }) {
         <nav className={`nav-bar ${isNavVisible ? 'show' : ''}`}>
             <ul>
                 <li className="nav-link">
-                    <NavLink to="/" className={location}>Home</NavLink>
+                    <NavLink to="/little-lemon" className={location}>Home</NavLink>
                 </li>
                 <li className="nav-link"><NavLink to="/little-lemon/about" className={location}>About</NavLink></li>
                 <li className="nav-link"><NavLink to="/little-lemon/menu" className={location}>Menu</NavLink></li>
