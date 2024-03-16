@@ -6,7 +6,7 @@ export default function HighLightSection({ specials }) {
             <div className="highlight container">
                 <div className="title-bar">
                     <h2>This weeks specials!</h2>
-                    <Link to="/menu"><button>Online Menu</button></Link>
+                    <Link to="/little-lemon/menu"><button>Online Menu</button></Link>
                 </div>
                 <section id="menu">
                     {specials.map((item, index) => {

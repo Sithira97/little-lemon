@@ -15,7 +15,7 @@ export default function HeroSection({ specials, testimonials }) {
                                 focused on traditional
                                 recipes served with a modern
                                 twist.</Text>
-                            <Link to="/booking"><Button mt={'1rem'}>Reserve a table</Button></Link>
+                            <Link to="/little-lemon/booking"><Button mt={'1rem'}>Reserve a table</Button></Link>
                         </Box>
                         <img className="hero-image" src={process.env.PUBLIC_URL + '/images/restauranfood.jpg'} alt="hero" />
                     </Box>
