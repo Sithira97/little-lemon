@@ -7,28 +7,7 @@ import Footer from '../_layouts/Footer.js';
 
 
 function HomePage() {
-    const specials = [
-        {
-            'title': 'Greek salad',
-            'price': 12.99,
-            'description': "The famous Greek salad Of crispy lettuce. peppers, olive and our Chicago style feta cheese. garnished with  crunchy garlic and rosemary croutons.",
-            'image': '1'
-        },
-        {
-            'title': 'Bruschetta',
-            'price': 5.29,
-            'description': "Our Bruschetta is mado from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
-            'image': '2'
-        },
-        {
-            'title': 'Pasta',
-            'price': 5.99,
-            'description': "This comes straight from grandma's recipe book. every last ingredient has been sourced and is as authentic as can be imagined.",
-            'image': '3'
-        },
-
-    ]
-
+    let specials = require('../../menu.json');
     const testimonials = [
         {
             'rating': 5,

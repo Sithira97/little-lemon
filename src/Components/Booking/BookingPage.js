@@ -4,6 +4,7 @@ import Footer from '../_layouts/Footer.js';
 import { fetchAPI, submitAPI } from '../API.js';
 import React, { useReducer } from "react";
 import { useNavigate } from 'react-router-dom';
+import { Card, CardBody, Heading } from '@chakra-ui/react'
 
 
 
@@ -28,14 +29,14 @@ function BookingPage() {
         return state;
     }
 
-    const initializeTimes = ["--- Select a Time ---", '17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+    const initializeTimes = []
     const [availableTimes, updateTimes] = useReducer(reducer, initializeTimes)
 
     const navigate = useNavigate();
 
     const handleSubmit = (values) => {
         const response = submitAPI(values);
-        console.log('submitted');
+        console.log(values);
         if (response) {
             navigate('/booking/success');
         } else {
@@ -48,11 +49,16 @@ function BookingPage() {
     return (
         <>
             <Header />
-            < BookingForm
-                formData={formData}
-                availableTimes={availableTimes}
-                updateTimes={updateTimes}
-                handleSubmit={handleSubmit} />
+            <Heading as='h1' size='4xl' className='title'>Booking Details</Heading>
+            <Card m='2rem' w='50%' alignSelf='center' px='4rem'>
+                <CardBody>
+                    < BookingForm
+                        formData={formData}
+                        availableTimes={availableTimes}
+                        updateTimes={updateTimes}
+                        handleSubmit={handleSubmit} />
+                </CardBody>
+            </Card>
             <Footer />
         </>
     )

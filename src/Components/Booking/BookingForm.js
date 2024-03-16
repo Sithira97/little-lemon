@@ -1,4 +1,8 @@
 import { Formik, Form, Field } from 'formik';
+import {
+    Select, Input, Textarea, Button, Box,
+    FormControl, FormErrorMessage, FormLabel, HStack
+} from '@chakra-ui/react'
 import * as Yup from 'yup';
 
 function BookingForm({ formData, availableTimes, updateTimes, handleSubmit }) {
@@ -22,123 +26,101 @@ function BookingForm({ formData, availableTimes, updateTimes, handleSubmit }) {
             .max(50, 'Too Long!'),
     });
 
+
     return (
         <>
             <Formik
                 initialValues={formData}
                 validationSchema={bookingFormSchema}
-                onSubmit={(values)=>handleSubmit(values)}
+                onSubmit={(values) => handleSubmit(values)}
             >
-                {({
-                    errors,
-                    touched,
-                    validateForm,
-
-                }) => (
-                    <div className="form-container">
-                        <h1>Booking Details</h1>
-                        <main className="main">
-                            <Form noValidate>
-                                <div className="form-group">
-                                    <label htmlFor='res-date'>Choose Date</label>
-                                    <Field name='_res_date'>
-                                        {({
-                                            field,
-                                            form: { setFieldValue },
-                                            meta,
-                                        }) => (
-                                            <div className="input-group">
-                                                <input className='form-control' type='date' name='_res_date' id='res_date' {...field}
-                                                    onChange={(e) => {
-                                                        updateTimes({ type: 'UPDATE_TIMES', value: e.target.value });
-                                                        setFieldValue('_res_date', e.target.value);
-                                                    }} />
-                                                {meta.touched && meta.error && (
-                                                    <div className="invalid-alert error">{meta.error}</div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </Field>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor='res-time'>Choose Time</label>
-                                    <Field name='_res_time'>
-                                        {({
-                                            field,
-                                            meta,
-                                        }) => (
-                                            <div className="input-group">
-                                                <select className='form-control' name='_res_time' id='res_time'  {...field}>
-                                                    {availableTimes.map(availableTime => (
-                                                        <option key={availableTime}>{availableTime}</option>
-                                                    ))}
-                                                </select>
-                                                {meta.touched && meta.error && (
-                                                    <div className="invalid-alert error">{meta.error}</div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </Field>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor='guests'>Numbe of Guests</label>
-                                    <Field name='_guests'>
-                                        {({
-                                            field,
-                                            meta,
-                                        }) => (
-                                            <div className="input-group">
-                                                <input className='form-control' type='number' name='_guests' id='guests' min="1" max="8" {...field}
-                                                    placeholder='number of guests' />
-                                                {meta.touched && meta.error && (
-                                                    <div className="invalid-alert error">{meta.error}</div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </Field>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="occasion">Occasion</label>
-                                    <Field name='_occasion'>
-                                        {({
-                                            field,
-                                            meta,
-                                        }) => (
-                                            <div className="input-group">
-                                                <select className='form-control' name='_occasion' id="occasion" {...field}>
-                                                    <option>Birthday</option>
-                                                    <option>Anniversary</option>
-                                                </select>
-                                                {meta.touched && meta.error && (
-                                                    <div className="invalid-alert error">{meta.error}</div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </Field>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor='notes'>Notes</label>
-                                    <Field name='_notes'>
-                                        {({
-                                            field,
-                                            meta,
-                                        }) => (
-                                            <div className="input-group">
-                                                <textarea className='form-control' type='text' name='_notes' id='notes' {...field}
-                                                    rows={2} />
-                                                {meta.touched && meta.error && (
-                                                    <div className="invalid-alert error">{meta.error}</div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </Field>
-                                </div>
-                                <div className="form-group">
-                                    <button className='btn btn-block btn-primary m-none' type='submit'>Book Now!</button>
-                                </div>
-                            </Form>
-                        </main>
-                    </div>
+                {(props) => (
+                    <Form noValidate>
+                        <Box className="form-group">
+                            <Field name='_res_date'>
+                                {({ field, form, meta }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error} isRequired>
+                                        <FormLabel htmlFor='res_date'>Choose Date</FormLabel>
+                                        <Input type='date' id='res_date' {...field}
+                                            onChange={(e) => {
+                                                updateTimes({ type: 'UPDATE_TIMES', value: e.target.value });
+                                                form.setFieldValue('_res_date', e.target.value);
+                                                document.getElementById('res_time').disabled = false;
+                                            }} />
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Field name='_res_time'>
+                                {({ field, meta, }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error} isRequired>
+                                        <FormLabel htmlFor='res_time'>Choose Time</FormLabel>
+                                        <Select id='res_time' placeholder='Select a Time' disabled {...field}>
+                                            {availableTimes.map(availableTime => (
+                                                <option key={availableTime}>{availableTime}</option>
+                                            ))}
+                                        </Select>
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Field name='_guests'>
+                                {({ field, meta, form }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error} isRequired isReadOnly>
+                                        <FormLabel htmlFor='guests'>Numbe of Guests</FormLabel>
+                                        <HStack>
+                                            <Button w='100%' onClick={(e) => {
+                                                let guests = parseInt(field.value, 10) - 1;
+                                                if (guests >= 1) {
+                                                    form.setFieldValue("_guests", guests);
+                                                }
+                                            }}>-</Button>
+                                            <Input {...field} type='number' id='guests' textAlign={'center'} />
+                                            <Button w='100%' onClick={(e) => {
+                                                let guests = parseInt(field.value, 10) + 1;
+                                                if (guests <= 8) {
+                                                    form.setFieldValue("_guests", guests);
+                                                }
+                                            }}>+</Button>
+                                        </HStack>
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Field name='_occasion'>
+                                {({ field, meta, }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error}>
+                                        <FormLabel htmlFor="occasion">Occasion</FormLabel>
+                                        <Select id="occasion" placeholder='Select a Occation' {...field}>
+                                            <option>Birthday</option>
+                                            <option>Anniversary</option>
+                                        </Select>
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Field name='_notes'>
+                                {({ field, meta, }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error}>
+                                        <FormLabel htmlFor='notes'>Notes</FormLabel>
+                                        <Textarea id='notes' {...field} rows={2} />
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Button className='btn-block btn-primary' isLoading={props.isSubmitting} type='submit'>Book Now!</Button>
+                        </Box>
+                    </Form>
                 )}
             </Formik>
         </>

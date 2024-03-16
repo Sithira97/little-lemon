@@ -1,57 +1,60 @@
-import { Formik } from 'formik';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import {
+    Input, Button, Box,
+    FormControl, FormErrorMessage, FormLabel
+} from '@chakra-ui/react'
 
-function LoginForm({ formData, setFormData, handleSubmit }) {
+function LoginForm({ formData, handleSubmit }) {
 
-    const handleInputChange = (field, value) => {
-        setFormData({ ...formData, [field]: value });
-    };
+    const loginFormSchema = Yup.object().shape({
+        _email: Yup.string()
+            .email('Must be a valid email')
+            .required('Enter your registered email to login'),
+        _password: Yup.string()
+            .min(8, 'Minmum 8 characters should be on password!')
+            .max(20, 'Maximum allowed password should have 20 characters!')
+            .required('Enter your password to login'),
+    });
+
 
     return (
         <>
             <Formik
-                initialValues={{ email: '', password: '' }}
-                validate={values => {
-                    const errors = {};
-                    if (!values.email) {
-                        errors.email = 'Required';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        errors.email = 'Invalid email address';
-                    }
-                    return errors;
-                }}
-
-                onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
-                    }, 400);
-                }}
-
+                initialValues={formData}
+                validationSchema={loginFormSchema}
+                onSubmit={(values) => handleSubmit(values)}
             >
-                <div className="form-container">
-                    <h1>Login</h1>
-                    <main className="main">
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor='email'>Email</label>
-                                <input className='form-control' type='email' name='_email' id='email'
-                                    value={formData.email}
-                                    onChange={(e) => handleInputChange('email', e.target.value)} required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor='guests'>Password</label>
-                                <input className='form-control' type='password' placeholder="Enter Password" name='_password' id='password'
-                                    value={formData.password}
-                                    onChange={(e) => handleInputChange('password', e.target.value)}required />
-                            </div>
-                            <div className="form-group">
-                                <button type='submit'>Book Now!</button>
-                            </div>
-                        </form>
-                    </main>
-                </div>
+                {(props) => (
+                    <Form noValidate>
+                        <Box className="form-group">
+                            <Field name='_email'>
+                                {({ field, meta, }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error} isRequired>
+                                        <FormLabel htmlFor='email'><b>Email</b></FormLabel>
+                                        <Input type='email' id='email' {...field} />
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Field name='_password'>
+                                {({ field, meta, }) => (
+                                    <FormControl isInvalid={meta.touched && meta.error} isRequired>
+                                        <FormLabel htmlFor='password'><b>Password</b></FormLabel>
+                                        <Input type='password' id='password' {...field} />
+                                        <FormErrorMessage>{meta.error}</FormErrorMessage>
+                                    </FormControl>
+                                )}
+                            </Field>
+                        </Box>
+                        <Box className="form-group">
+                            <Button className='btn-block btn-primary m-none' isLoading={props.isSubmitting} type='submit'>Login</Button>
+                        </Box>
+                    </Form>
+
+                )}
             </Formik>
         </>
     )

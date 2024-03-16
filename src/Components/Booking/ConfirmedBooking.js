@@ -1,13 +1,15 @@
 import Header from '../_layouts/Header.js';
 import Footer from '../_layouts/Footer.js';
+import { Box, Button, Heading, Text, Card, CardBody, } from '@chakra-ui/react'
 
 function ConfirmedBooking() {
     return (
         <>
             <Header />
             <>
-                <div className="container confirm-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="154px" height="154px">
+                <Box className="container confirm-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="154px" height="154px"
+                        style={{ position: 'relative', top: '35px', zIndex: 2, filter: 'drop-shadow(0px 0px 5px #22AE73)' }}>
                         <g fill="none" stroke="#22AE73" strokeWidth={2}>
                             <circle
                                 cx={77}
@@ -32,13 +34,17 @@ function ConfirmedBooking() {
                             />
                         </g>
                     </svg>
-                    <h2>Booking Confirmed</h2>
-                    <p>Thank you for reserving at our restaurant!</p>
-                    <div>
-                        <button onClick={() => window.location.href = "/booking"} className='btn btn-outline'>Reserve another</button>
-                        <button onClick={() => window.location.href = "/"} className='btn btn-primary'>Go to Home</button>
-                    </div>
-                </div>
+                    <Card>
+                        <CardBody align="center" justify="center" p='2rem'>
+                            <Heading Heading as='h2' size='3xl' >Booking Confirmed</Heading>
+                            <Text >Thank you for reserving at our restaurant!</Text>
+                            <Box mt={'1rem'}>
+                                <Button onClick={() => window.location.href = "/booking"} className='btn btn-outline'>Reserve another</Button>
+                                <Button onClick={() => window.location.href = "/"} className='btn btn-primary'>Go to Home</Button>
+                            </Box>
+                        </CardBody>
+                    </Card>
+                </Box>
             </>
             <Footer />
         </>

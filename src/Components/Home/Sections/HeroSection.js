@@ -1,26 +1,26 @@
 import { Link } from "react-router-dom";
-
+import { Button, Box, Text, Heading, } from '@chakra-ui/react'
 
 export default function HeroSection({ specials, testimonials }) {
     return (
         <>
-            <div className="hero-container">
-                <div className="darker-layer">
-                    <div className="container">
-                        <div className="hero">
-                            <h1>Little Lemon</h1>
-                            <h2>Chicago</h2>
-                            <p>We are a family owned
+            <Box className="hero-container">
+                <Box className="darker-layer">
+                    <Box className="container">
+                        <Box className="hero">
+                            <Heading as='h1' size='3xl'>Little Lemon</Heading>
+                            <Heading as='h2' size='xl'>Chicago</Heading>
+                            <Text>We are a family owned
                                 Mediterranean restaurant,
                                 focused on traditional
                                 recipes served with a modern
-                                twist.</p>
-                            <Link to="/booking"><button>Reserve a table</button></Link>
-                        </div>
+                                twist.</Text>
+                            <Link to="/booking"><Button mt={'1rem'}>Reserve a table</Button></Link>
+                        </Box>
                         <img className="hero-image" src={process.env.PUBLIC_URL + '/images/restauranfood.jpg'} alt="hero" />
-                    </div>
-                </div>
-            </div>
+                    </Box>
+                </Box>
+            </Box>
         </>
     )
 }

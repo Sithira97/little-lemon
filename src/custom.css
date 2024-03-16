@@ -1,12 +1,12 @@
 body,
 button {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Karla', sans-serif !important; 
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Markazi Text', serif;
+    font-family: 'Markazi Text', serif !important;
 }
 
 h1 {
@@ -130,7 +130,7 @@ button:focus {
     /* background-color: #808080; */
     margin: 1rem;
     max-width: 100px;
-    width:auto;
+    width: auto;
     height: 150px;
     align-self: center;
 }
@@ -209,6 +209,18 @@ button:focus {
 
 }
 
+section.menupage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 0 0 3rem 0;
+}
+
+section.menupage .card {
+    width: auto;
+}
+
+
 .highlight .card:hover {
     transition: 10ms;
     scale: 105%;
@@ -227,7 +239,7 @@ button:focus {
 }
 
 .card .card-image {
-
+    max-width: none;
     background-color: #808080;
     display: block;
     position: relative;
@@ -256,6 +268,7 @@ button:focus {
 }
 
 .card .card-content .user-rate {
+    display: flex;
     margin: 0 0 0.5rem 0.5rem;
 }
 
@@ -263,12 +276,20 @@ button:focus {
     fill: #f3cd31;
 }
 
+.card .card-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .card .card-footer {
     padding: 0.5rem 0;
     margin-top: auto;
 }
 
-.highlight .card .card-footer button {
+.highlight .card .card-footer button,
+section.menupage .card .card-footer button {
     padding: 0.5rem 1rem;
     border: none;
     background-color: transparent;
@@ -369,6 +390,22 @@ img {
     text-align: center;
 }
 
+hr {
+    margin: 1em 0 0.5em 0;
+}
+
+.title{
+    text-align: center;
+    background-color: #495e57;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+.mb-2{
+    margin-bottom: 2rem;
+}
+
+
 @media (min-width:1400px) {
     .container {
         max-width: 1200px;
@@ -399,7 +436,7 @@ img {
     }
 
     .hero-container .container {
-        padding: 0 10rem;
+        padding: 0 5rem;
     }
 }
 
@@ -420,6 +457,10 @@ img {
         margin: 0 auto;
     }
 
+    .chakra-card{
+        width: 75% !important;
+    }
+
     .hero-container .container {
         padding: 0 5rem;
     }
@@ -437,6 +478,10 @@ img {
     .container {
         max-width: 100%;
         margin: 0 auto;
+    }
+
+    .chakra-card{
+        width: 75% !important;
     }
 
     .header .container {
@@ -541,6 +586,10 @@ img {
         margin: 0 4rem;
     }
 
+    section.menupage {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .testimonials .slider {
         display: flex;
         flex-wrap: wrap;
@@ -565,6 +614,10 @@ img {
         margin: 0 auto;
     }
 
+    .chakra-card{
+        width: 100% !important;
+    }
+
     .footer .container {
         grid-template-columns: repeat(2, 50%);
     }
@@ -575,6 +628,10 @@ img {
 
     .highlight .title-bar {
         margin: 0 2rem;
+    }
+
+    section.menupage {
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .testimonials .slider .card {
@@ -601,12 +658,13 @@ img {
     }
 }
 
-.confirm-container{
+.confirm-container {
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.confirm-container h2{
+
+.confirm-container h2 {
     margin-top: 1rem;
 }
