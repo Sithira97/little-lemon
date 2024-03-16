@@ -19,13 +19,13 @@ function App() {
       <ChakraProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
-            <Route path="/menu" element={<MenuPage />}></Route>
-            <Route path="/booking" element={<BookingPage />}></Route>
-            <Route path="/booking/success" element={<ConfirmedBooking />}></Route>
-            <Route path="/order" element={<OrderOnline />}></Route>
-            <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/little-lemon" element={<HomePage />}></Route>
+            <Route path="/little-lemon/about" element={<AboutPage />}></Route>
+            <Route path="/little-lemon/menu" element={<MenuPage />}></Route>
+            <Route path="/little-lemon/booking" element={<BookingPage />}></Route>
+            <Route path="/little-lemon/booking/success" element={<ConfirmedBooking />}></Route>
+            <Route path="/little-lemon/order" element={<OrderOnline />}></Route>
+            <Route path="/little-lemon/login" element={<LoginPage />}></Route>
           </Routes>
         </Router>
       </ChakraProvider>

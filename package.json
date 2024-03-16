@@ -1,7 +1,7 @@
 {
   "name": "capstone",
   "version": "0.1.0",
-  "homepage": "https://little-lemon.github.io/home",
+  "homepage": "https://sithira97.github.io/little-lemon/",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",

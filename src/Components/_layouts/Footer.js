@@ -8,12 +8,12 @@ function Footer() {
                 <nav>
                     <h4 className="footer-title">Pages</h4>
                     <ul>
-                        <li className="nav-link"><Link to="/">Home</Link></li>
-                        <li className="nav-link"><a href="#about">About</a></li>
-                        <li className="nav-link"><a href="#Menu">Menu</a></li>
-                        <li className="nav-link"><Link to="/booking">Reservations</Link></li>
-                        <li className="nav-link"><a href="#Order">OrderOnline</a></li>
-                        <li className="nav-link"><a href="#Login">Login</a></li>
+                        <li className="nav-link"><Link to="/little-lemon">Home</Link></li>
+                        <li className="nav-link"><Link to="/little-lemon/aboutt">About</Link></li>
+                        <li className="nav-link"><Link to="/little-lemon/menu">Menu</Link></li>
+                        <li className="nav-link"><Link to="/little-lemon/booking">/Reservations</Link></li>
+                        <li className="nav-link"><Link to="/little-lemon/order">OrderOnline</Link></li>
+                        <li className="nav-link"><Link to="/little-lemon/login">Login</Link></li>
                     </ul>
                 </nav>
                 <nav>
